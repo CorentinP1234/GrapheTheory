@@ -1,0 +1,84 @@
+* Création du graphe d'ordonnancement C2_table_12 :
+
+   14 sommets
+   23 arcs
+   0 -> 1 = 0
+   0 -> 2 = 0
+   1 -> 3 = 10
+   2 -> 3 = 10
+   10 -> 3 = 12
+   1 -> 4 = 10
+   2 -> 4 = 10
+   4 -> 5 = 5
+   5 -> 6 = 4
+   4 -> 7 = 5
+   9 -> 8 = 8
+   5 -> 8 = 4
+   7 -> 8 = 2
+   3 -> 9 = 9
+   4 -> 9 = 5
+   9 -> 10 = 8
+   8 -> 11 = 4
+   10 -> 11 = 12
+   6 -> 11 = 2
+   1 -> 12 = 10
+   6 -> 12 = 2
+   11 -> 13 = 2
+   12 -> 13 = 20
+
+* Matrice des valeurs de C2_table_12 :
+
+       0  1  2  3  4  5  6  7  8  9 10 11 12 13 
+    0| .  0  0  .  .  .  .  .  .  .  .  .  .  . |
+    1| .  .  . 10 10  .  .  .  .  .  .  . 10  . |
+    2| .  .  . 10 10  .  .  .  .  .  .  .  .  . |
+    3| .  .  .  .  .  .  .  .  .  9  .  .  .  . |
+    4| .  .  .  .  .  5  .  5  .  5  .  .  .  . |
+    5| .  .  .  .  .  .  4  .  4  .  .  .  .  . |
+    6| .  .  .  .  .  .  .  .  .  .  .  2  2  . |
+    7| .  .  .  .  .  .  .  .  2  .  .  .  .  . |
+    8| .  .  .  .  .  .  .  .  .  .  .  4  .  . |
+    9| .  .  .  .  .  .  .  .  8  .  8  .  .  . |
+   10| .  .  . 12  .  .  .  .  .  .  . 12  .  . |
+   11| .  .  .  .  .  .  .  .  .  .  .  .  .  2 |
+   12| .  .  .  .  .  .  .  .  .  .  .  .  . 20 |
+   13| .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+
+> Il y a un seul point d'entré, 0
+> Il y a un seul point de sortie, 13
+
+* Détection de circuit :
+Méthode d'élimination des points d'entrée
+
+   Noeud sans prédecesseurs : 0 
+   Point d'entrée : 0 
+   Suppression des points d'entrée
+   Sommets restant : 1 2 3 4 5 6 7 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 1 2 
+   Point d'entrée : 1 2 
+   Suppression des points d'entrée
+   Sommets restant : 3 4 5 6 7 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 4 
+   Point d'entrée : 4 
+   Suppression des points d'entrée
+   Sommets restant : 3 5 6 7 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 5 7 
+   Point d'entrée : 5 7 
+   Suppression des points d'entrée
+   Sommets restant : 3 6 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 6 
+   Point d'entrée : 6 
+   Suppression des points d'entrée
+   Sommets restant : 3 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 12 
+   Point d'entrée : 12 
+   Suppression des points d'entrée
+   Sommets restant : 3 8 9 10 11 13 
+   Noeud sans prédecesseurs : Aucun
+
+ERREUR: Le graphe de C2_table_12 contient au moins un cycle
+
+ERREUR: Le graphe de C2_table_12 n'est pas un graphe d'ordonnancement
+ IL est impossible de calculer les calendriers et les marges
+
+> Programme terminé

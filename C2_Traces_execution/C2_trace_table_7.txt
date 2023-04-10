@@ -1,0 +1,122 @@
+* Création du graphe d'ordonnancement C2_table_7 :
+
+   12 sommets
+   16 arcs
+   10 -> 1 = 10
+   4 -> 1 = 4
+   7 -> 2 = 7
+   6 -> 3 = 6
+   0 -> 4 = 0
+   4 -> 5 = 4
+   0 -> 6 = 0
+   0 -> 7 = 0
+   5 -> 8 = 5
+   7 -> 8 = 7
+   8 -> 9 = 8
+   1 -> 9 = 1
+   3 -> 9 = 3
+   6 -> 10 = 6
+   9 -> 11 = 9
+   2 -> 11 = 2
+
+* Matrice des valeurs de C2_table_7 :
+
+       0  1  2  3  4  5  6  7  8  9 10 11 
+    0| .  .  .  .  0  .  0  0  .  .  .  . |
+    1| .  .  .  .  .  .  .  .  .  1  .  . |
+    2| .  .  .  .  .  .  .  .  .  .  .  2 |
+    3| .  .  .  .  .  .  .  .  .  3  .  . |
+    4| .  4  .  .  .  4  .  .  .  .  .  . |
+    5| .  .  .  .  .  .  .  .  5  .  .  . |
+    6| .  .  .  6  .  .  .  .  .  .  6  . |
+    7| .  .  7  .  .  .  .  .  7  .  .  . |
+    8| .  .  .  .  .  .  .  .  .  8  .  . |
+    9| .  .  .  .  .  .  .  .  .  .  .  9 |
+   10| . 10  .  .  .  .  .  .  .  .  .  . |
+   11| .  .  .  .  .  .  .  .  .  .  .  . |
+
+> Il y a un seul point d'entré, 0
+> Il y a un seul point de sortie, 11
+
+* Détection de circuit :
+Méthode d'élimination des points d'entrée
+
+   Noeud sans prédecesseurs : 0 
+   Point d'entrée : 0 
+   Suppression des points d'entrée
+   Sommets restant : 1 2 3 4 5 6 7 8 9 10 11 
+   Noeud sans prédecesseurs : 4 6 7 
+   Point d'entrée : 4 6 7 
+   Suppression des points d'entrée
+   Sommets restant : 1 2 3 5 8 9 10 11 
+   Noeud sans prédecesseurs : 10 2 3 5 
+   Point d'entrée : 10 2 3 5 
+   Suppression des points d'entrée
+   Sommets restant : 1 8 9 11 
+   Noeud sans prédecesseurs : 8 1 
+   Point d'entrée : 8 1 
+   Suppression des points d'entrée
+   Sommets restant : 9 11 
+   Noeud sans prédecesseurs : 9 
+   Point d'entrée : 9 
+   Suppression des points d'entrée
+   Sommets restant : 11 
+   Noeud sans prédecesseurs : 11 
+   Point d'entrée : 11 
+   Suppression des points d'entrée
+   Sommets restant : Aucun
+
+> Il n'y a pas de cycle
+> Les valeurs pour tous les arcs incidents vers l'extérieur à un sommet sont identiques
+> Il n'y a pas d'arc négatifs
+> Les arcs 0->4 0->6 et 0->7 sont nuls
+> C'est un graphe d'ordonnancement
+
+* Tri topologique:
+Rangs:    0   1   1   1   2   2   2   2   3   3   4   5
+Taches:   0   4   6   7   2   3   5  10   1   8   9  11
+
+* Calendriers :
+
+    Taches   Dates au plus tot   Dates au plus tard 
+  |   0    |         0         |          0         |
+  |   1    |        16         |         16         |
+  |   2    |         7         |         24         |
+  |   3    |         6         |         14         |
+  |   4    |         0         |          0         |
+  |   5    |         4         |          4         |
+  |   6    |         0         |          0         |
+  |   7    |         0         |          2         |
+  |   8    |         9         |          9         |
+  |   9    |        17         |         17         |
+  |   10   |         6         |          6         |
+  |   11   |        26         |         26         |
+
+
+* Marges :
+
+    Taches   Marges Totales   Marges Libres 
+  |   0    |       0        |       0       |
+  |   1    |       0        |       0       |
+  |   2    |       17       |       17      |
+  |   3    |       8        |       8       |
+  |   4    |       0        |       0       |
+  |   5    |       0        |       0       |
+  |   6    |       0        |       0       |
+  |   7    |       2        |       0       |
+  |   8    |       0        |       0       |
+  |   9    |       0        |       0       |
+  |   10   |       0        |       0       |
+  |   11   |       0        |       0       |
+
+* Chemins critiques:
+> 0->4->1->9->11
+> 0->4->5->8->9->11
+> 0->6->10->1->9->11
+
+Le plus long chemin critique est : 
+> 0->4->5->8->9->11
+de longueur 26 jours. 
+Il faudra au minimum 26 jours pour réaliser le projet C2_table_7.
+
+> Programme terminé

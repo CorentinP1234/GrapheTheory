@@ -1,0 +1,127 @@
+* Création du graphe d'ordonnancement C2_table_4 :
+
+   13 sommets
+   16 arcs
+   0 -> 1 = 0
+   0 -> 2 = 0
+   2 -> 3 = 2
+   1 -> 4 = 3
+   4 -> 5 = 5
+   5 -> 6 = 4
+   4 -> 7 = 5
+   5 -> 8 = 4
+   7 -> 8 = 2
+   4 -> 9 = 5
+   9 -> 10 = 5
+   3 -> 10 = 3
+   8 -> 11 = 4
+   6 -> 11 = 2
+   10 -> 12 = 1
+   11 -> 12 = 2
+
+* Matrice des valeurs de C2_table_4 :
+
+       0  1  2  3  4  5  6  7  8  9 10 11 12 
+    0| .  0  0  .  .  .  .  .  .  .  .  .  . |
+    1| .  .  .  .  3  .  .  .  .  .  .  .  . |
+    2| .  .  .  2  .  .  .  .  .  .  .  .  . |
+    3| .  .  .  .  .  .  .  .  .  .  3  .  . |
+    4| .  .  .  .  .  5  .  5  .  5  .  .  . |
+    5| .  .  .  .  .  .  4  .  4  .  .  .  . |
+    6| .  .  .  .  .  .  .  .  .  .  .  2  . |
+    7| .  .  .  .  .  .  .  .  2  .  .  .  . |
+    8| .  .  .  .  .  .  .  .  .  .  .  4  . |
+    9| .  .  .  .  .  .  .  .  .  .  5  .  . |
+   10| .  .  .  .  .  .  .  .  .  .  .  .  1 |
+   11| .  .  .  .  .  .  .  .  .  .  .  .  2 |
+   12| .  .  .  .  .  .  .  .  .  .  .  .  . |
+
+> Il y a un seul point d'entré, 0
+> Il y a un seul point de sortie, 12
+
+* Détection de circuit :
+Méthode d'élimination des points d'entrée
+
+   Noeud sans prédecesseurs : 0 
+   Point d'entrée : 0 
+   Suppression des points d'entrée
+   Sommets restant : 1 2 3 4 5 6 7 8 9 10 11 12 
+   Noeud sans prédecesseurs : 1 2 
+   Point d'entrée : 1 2 
+   Suppression des points d'entrée
+   Sommets restant : 3 4 5 6 7 8 9 10 11 12 
+   Noeud sans prédecesseurs : 3 4 
+   Point d'entrée : 3 4 
+   Suppression des points d'entrée
+   Sommets restant : 5 6 7 8 9 10 11 12 
+   Noeud sans prédecesseurs : 9 5 7 
+   Point d'entrée : 9 5 7 
+   Suppression des points d'entrée
+   Sommets restant : 6 8 10 11 12 
+   Noeud sans prédecesseurs : 8 10 6 
+   Point d'entrée : 8 10 6 
+   Suppression des points d'entrée
+   Sommets restant : 11 12 
+   Noeud sans prédecesseurs : 11 
+   Point d'entrée : 11 
+   Suppression des points d'entrée
+   Sommets restant : 12 
+   Noeud sans prédecesseurs : 12 
+   Point d'entrée : 12 
+   Suppression des points d'entrée
+   Sommets restant : Aucun
+
+> Il n'y a pas de cycle
+> Les valeurs pour tous les arcs incidents vers l'extérieur à un sommet sont identiques
+> Il n'y a pas d'arc négatifs
+> Les arcs 0->1 et 0->2 sont nuls
+> C'est un graphe d'ordonnancement
+
+* Tri topologique:
+Rangs:    0   1   1   2   2   3   3   3   4   4   4   5   6
+Taches:   0   1   2   3   4   5   7   9   6   8  10  11  12
+
+* Calendriers :
+
+    Taches   Dates au plus tot   Dates au plus tard 
+  |   0    |         0         |          0         |
+  |   1    |         0         |          0         |
+  |   2    |         0         |         12         |
+  |   3    |         2         |         14         |
+  |   4    |         3         |          3         |
+  |   5    |         8         |          8         |
+  |   6    |        12         |         14         |
+  |   7    |         8         |         10         |
+  |   8    |        12         |         12         |
+  |   9    |         8         |         12         |
+  |   10   |        13         |         17         |
+  |   11   |        16         |         16         |
+  |   12   |        18         |         18         |
+
+
+* Marges :
+
+    Taches   Marges Totales   Marges Libres 
+  |   0    |       0        |       0       |
+  |   1    |       0        |       0       |
+  |   2    |       12       |       0       |
+  |   3    |       12       |       8       |
+  |   4    |       0        |       0       |
+  |   5    |       0        |       0       |
+  |   6    |       2        |       2       |
+  |   7    |       2        |       2       |
+  |   8    |       0        |       0       |
+  |   9    |       4        |       0       |
+  |   10   |       4        |       4       |
+  |   11   |       0        |       0       |
+  |   12   |       0        |       0       |
+
+* Chemins critiques:
+> 0->1->4->5->8->11->12
+
+Le plus long chemin critique est : 
+> 0->1->4->5->8->11->12
+de longueur 18 jours. 
+Il faudra au minimum 18 jours pour réaliser le projet C2_table_4.
+
+> Programme terminé

@@ -1,0 +1,147 @@
+* Création du graphe d'ordonnancement C2_table_6 :
+
+   14 sommets
+   23 arcs
+   0 -> 1 = 0
+   0 -> 2 = 0
+   1 -> 3 = 10
+   2 -> 3 = 10
+   1 -> 4 = 10
+   2 -> 4 = 10
+   4 -> 5 = 5
+   5 -> 6 = 4
+   4 -> 7 = 5
+   9 -> 8 = 8
+   5 -> 8 = 4
+   7 -> 8 = 2
+   3 -> 9 = 9
+   4 -> 9 = 5
+   9 -> 10 = 8
+   3 -> 10 = 9
+   8 -> 11 = 4
+   10 -> 11 = 12
+   6 -> 11 = 2
+   1 -> 12 = 10
+   6 -> 12 = 2
+   11 -> 13 = 2
+   12 -> 13 = 20
+
+* Matrice des valeurs de C2_table_6 :
+
+       0  1  2  3  4  5  6  7  8  9 10 11 12 13 
+    0| .  0  0  .  .  .  .  .  .  .  .  .  .  . |
+    1| .  .  . 10 10  .  .  .  .  .  .  . 10  . |
+    2| .  .  . 10 10  .  .  .  .  .  .  .  .  . |
+    3| .  .  .  .  .  .  .  .  .  9  9  .  .  . |
+    4| .  .  .  .  .  5  .  5  .  5  .  .  .  . |
+    5| .  .  .  .  .  .  4  .  4  .  .  .  .  . |
+    6| .  .  .  .  .  .  .  .  .  .  .  2  2  . |
+    7| .  .  .  .  .  .  .  .  2  .  .  .  .  . |
+    8| .  .  .  .  .  .  .  .  .  .  .  4  .  . |
+    9| .  .  .  .  .  .  .  .  8  .  8  .  .  . |
+   10| .  .  .  .  .  .  .  .  .  .  . 12  .  . |
+   11| .  .  .  .  .  .  .  .  .  .  .  .  .  2 |
+   12| .  .  .  .  .  .  .  .  .  .  .  .  . 20 |
+   13| .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+
+> Il y a un seul point d'entré, 0
+> Il y a un seul point de sortie, 13
+
+* Détection de circuit :
+Méthode d'élimination des points d'entrée
+
+   Noeud sans prédecesseurs : 0 
+   Point d'entrée : 0 
+   Suppression des points d'entrée
+   Sommets restant : 1 2 3 4 5 6 7 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 1 2 
+   Point d'entrée : 1 2 
+   Suppression des points d'entrée
+   Sommets restant : 3 4 5 6 7 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 3 4 
+   Point d'entrée : 3 4 
+   Suppression des points d'entrée
+   Sommets restant : 5 6 7 8 9 10 11 12 13 
+   Noeud sans prédecesseurs : 9 5 7 
+   Point d'entrée : 9 5 7 
+   Suppression des points d'entrée
+   Sommets restant : 6 8 10 11 12 13 
+   Noeud sans prédecesseurs : 8 10 6 
+   Point d'entrée : 8 10 6 
+   Suppression des points d'entrée
+   Sommets restant : 11 12 13 
+   Noeud sans prédecesseurs : 11 12 
+   Point d'entrée : 11 12 
+   Suppression des points d'entrée
+   Sommets restant : 13 
+   Noeud sans prédecesseurs : 13 
+   Point d'entrée : 13 
+   Suppression des points d'entrée
+   Sommets restant : Aucun
+
+> Il n'y a pas de cycle
+> Les valeurs pour tous les arcs incidents vers l'extérieur à un sommet sont identiques
+> Il n'y a pas d'arc négatifs
+> Les arcs 0->1 et 0->2 sont nuls
+> C'est un graphe d'ordonnancement
+
+* Tri topologique:
+Rangs:    0   1   1   2   2   3   3   3   4   4   4   5   5   6
+Taches:   0   1   2   3   4   5   7   9   6   8  10  11  12  13
+
+* Calendriers :
+
+    Taches   Dates au plus tot   Dates au plus tard 
+  |   0    |         0         |          0         |
+  |   1    |         0         |          0         |
+  |   2    |         0         |          0         |
+  |   3    |        10         |         10         |
+  |   4    |        10         |         10         |
+  |   5    |        15         |         15         |
+  |   6    |        19         |         19         |
+  |   7    |        15         |         33         |
+  |   8    |        27         |         35         |
+  |   9    |        19         |         19         |
+  |   10   |        27         |         27         |
+  |   11   |        39         |         39         |
+  |   12   |        21         |         21         |
+  |   13   |        41         |         41         |
+
+
+* Marges :
+
+    Taches   Marges Totales   Marges Libres 
+  |   0    |       0        |       0       |
+  |   1    |       0        |       0       |
+  |   2    |       0        |       0       |
+  |   3    |       0        |       0       |
+  |   4    |       0        |       0       |
+  |   5    |       0        |       0       |
+  |   6    |       0        |       0       |
+  |   7    |       18       |       10      |
+  |   8    |       8        |       8       |
+  |   9    |       0        |       0       |
+  |   10   |       0        |       0       |
+  |   11   |       0        |       0       |
+  |   12   |       0        |       0       |
+  |   13   |       0        |       0       |
+
+* Chemins critiques:
+> 0->1->12->13
+> 0->1->3->10->11->13
+> 0->2->3->10->11->13
+> 0->1->3->9->10->11->13
+> 0->1->4->9->10->11->13
+> 0->1->4->5->6->11->13
+> 0->1->4->5->6->12->13
+> 0->2->3->9->10->11->13
+> 0->2->4->9->10->11->13
+> 0->2->4->5->6->11->13
+> 0->2->4->5->6->12->13
+
+Le plus long chemin critique est : 
+> 0->1->3->9->10->11->13
+de longueur 41 jours. 
+Il faudra au minimum 41 jours pour réaliser le projet C2_table_6.
+
+> Programme terminé
